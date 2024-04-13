@@ -17,17 +17,7 @@ export async function fetchRevenue() {
   noStore();
 
   try {
-    // Artificially delay a response for development purposes.
-    // Don't do this in production :)
-    
-
-    console.log('Fetching revenue data...'); // TODO remove me
-    await new Promise((resolve) => setTimeout(resolve, 3000)); // TODO remove me
-
     const data = await sql<Revenue>`SELECT * FROM revenue`;
-
-    console.log('Data fetch completed after 3 seconds.'); // TODO remove me
-
     return data.rows;
   } catch (error) {
     console.error('Database Error:', error);
